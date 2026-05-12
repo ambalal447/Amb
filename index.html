@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UdyamBulk AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>UdyamBulk AI</h1>
+    <p>Advanced AI-powered bulk Udyam verification & business intelligence platform.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>1) Bulk Input</h2>
+      <textarea id="inputArea" rows="6" placeholder="Paste one Udyam Registration Number per line"></textarea>
+      <div class="upload-row">
+        <label class="file-btn">
+          Upload CSV/XLSX/TXT
+          <input id="fileInput" type="file" accept=".csv,.xlsx,.txt" multiple />
+        </label>
+        <button id="startBtn">Start Processing</button>
+        <button id="clearBtn" class="secondary">Clear</button>
+      </div>
+      <div id="dropZone">Drag & drop files here</div>
+      <small>Example: UDYAM-GJ-01-0000001</small>
+    </section>
+
+    <section class="card">
+      <h2>2) Bulk Processing</h2>
+      <div class="progress-wrap">
+        <div id="progressBar"></div>
+      </div>
+      <div class="stats">
+        <span>Total: <b id="totalCount">0</b></span>
+        <span>Processed: <b id="processedCount">0</b></span>
+        <span>Success: <b id="successCount">0</b></span>
+        <span>Failed: <b id="failedCount">0</b></span>
+      </div>
+      <ul id="queueList" class="queue-list"></ul>
+    </section>
+
+    <section class="card">
+      <h2>3) Verified Data Dashboard</h2>
+      <div class="table-wrap">
+        <table id="resultTable">
+          <thead>
+            <tr>
+              <th>Udyam No.</th><th>Business</th><th>Owner</th><th>Type</th><th>Reg Date</th><th>Status</th>
+              <th>State/District</th><th>Address</th><th>NIC</th><th>Activity</th><th>Investment</th><th>Turnover</th>
+              <th>Mfg/Service</th><th>Employees</th><th>GST/PAN</th><th>AI Summary</th><th>Alerts</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4) AI Intelligence (Gemini)</h2>
+      <p>
+        Configure Gemini API key in <code>config.js</code> for real summaries.
+        If unavailable, the system uses local fallback summaries and anomaly checks.
+      </p>
+      <div class="insights" id="insights"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
