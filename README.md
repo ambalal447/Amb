@@ -22,3 +22,17 @@ python3 -m http.server 4173
 Then visit <http://localhost:4173/preview/>.
 
 The preview is a static, dark-mode command-center mockup that visualizes the architecture blueprint, event pipeline, AI-agent roster, graph propagation example, and zero-hallucination guardrails.
+
+## Public Android Preview Deployment
+
+This repository includes a GitHub Pages workflow that deploys the static preview in `preview/` whenever preview files change on `main`, `master`, or `work`.
+
+To get a public URL you can open on an Android phone:
+
+1. Push this branch to GitHub.
+2. In the GitHub repository, open **Settings → Pages** and set **Source** to **GitHub Actions**.
+3. Open **Actions → Deploy Preview** and run the workflow if it did not start automatically.
+4. Open the deployed URL shown in the workflow summary. It will look like `https://<owner>.github.io/<repo>/`.
+
+The deployed page is phone-friendly because the static preview includes a responsive layout that collapses the sidebar and cards on smaller screens.
+
