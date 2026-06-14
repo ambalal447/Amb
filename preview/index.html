@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Financial Intelligence OS Preview</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #05070d;
+      --panel: #0c1220;
+      --panel-2: #101827;
+      --line: #223047;
+      --text: #e7edf7;
+      --muted: #8ea0b8;
+      --gold: #d8a84e;
+      --green: #42d392;
+      --red: #ff6b6b;
+      --blue: #6ea8ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% -10%, rgba(74, 121, 255, .18), transparent 32%), var(--bg);
+      color: var(--text);
+    }
+    .shell { min-height: 100vh; display: grid; grid-template-columns: 280px 1fr; }
+    aside { border-right: 1px solid var(--line); background: rgba(7, 11, 19, .82); padding: 28px 22px; position: sticky; top: 0; height: 100vh; }
+    .brand { display: flex; gap: 12px; align-items: center; margin-bottom: 34px; }
+    .mark { width: 38px; height: 38px; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); font-weight: 800; }
+    .brand h1 { font-size: 15px; margin: 0; letter-spacing: .12em; text-transform: uppercase; }
+    nav a { display: block; color: var(--muted); text-decoration: none; padding: 11px 12px; border-radius: 8px; font-size: 14px; }
+    nav a:hover, nav a.active { background: #111a2b; color: var(--text); }
+    main { padding: 34px; }
+    .hero { border: 1px solid var(--line); background: linear-gradient(135deg, rgba(16,24,39,.96), rgba(5,7,13,.9)); padding: 34px; border-radius: 18px; margin-bottom: 22px; }
+    .eyebrow { color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { font-size: clamp(30px, 5vw, 58px); line-height: 1; max-width: 920px; margin: 16px 0; }
+    .hero p { color: var(--muted); max-width: 850px; font-size: 17px; line-height: 1.7; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card { border: 1px solid var(--line); background: rgba(12, 18, 32, .9); border-radius: 16px; padding: 20px; }
+    .span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-5 { grid-column: span 5; } .span-7 { grid-column: span 7; } .span-12 { grid-column: span 12; }
+    .metric { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+    .value { margin-top: 10px; font-size: 28px; font-weight: 800; }
+    .green { color: var(--green); } .red { color: var(--red); } .blue { color: var(--blue); } .gold { color: var(--gold); }
+    .card h3 { margin: 0 0 14px; font-size: 18px; }
+    .list { display: grid; gap: 12px; }
+    .row { display: flex; align-items: start; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(34,48,71,.7); padding-top: 12px; }
+    .row:first-child { border-top: 0; padding-top: 0; }
+    .row strong { display: block; margin-bottom: 4px; }
+    .row span { color: var(--muted); font-size: 13px; line-height: 1.45; }
+    .badge { border: 1px solid var(--line); border-radius: 999px; padding: 5px 9px; color: var(--muted); white-space: nowrap; font-size: 12px; }
+    .pipeline { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+    .step { padding: 14px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 12px; min-height: 110px; }
+    .step b { color: var(--gold); display: block; margin-bottom: 8px; }
+    .step small { color: var(--muted); line-height: 1.45; }
+    .terminal { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: #03050a; border: 1px solid var(--line); border-radius: 14px; padding: 18px; color: #a8f0c6; overflow: auto; }
+    @media (max-width: 1000px) { .shell { grid-template-columns: 1fr; } aside { position: relative; height: auto; } .span-3,.span-4,.span-5,.span-7 { grid-column: span 12; } .pipeline { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand"><div class="mark">FI</div><h1>Intelligence OS</h1></div>
+      <nav>
+        <a class="active" href="#overview">Overview</a>
+        <a href="#events">Event Engine</a>
+        <a href="#graph">Knowledge Graph</a>
+        <a href="#agents">AI Agents</a>
+        <a href="#guardrails">Zero Hallucinations</a>
+      </nav>
+    </aside>
+    <main>
+      <section class="hero" id="overview">
+        <div class="eyebrow">Static product preview</div>
+        <h2>AI-powered financial intelligence with evidence-first answers.</h2>
+        <p>This preview visualizes the blueprint in this repository: a trusted operating system that explains what happened, why it happened, what is affected, and what to watch next.</p>
+      </section>
+
+      <section class="grid">
+        <div class="card span-3"><div class="metric">Sources</div><div class="value gold">Verified</div></div>
+        <div class="card span-3"><div class="metric">Latency Goal</div><div class="value blue">Seconds</div></div>
+        <div class="card span-3"><div class="metric">AI Output</div><div class="value green">Cited</div></div>
+        <div class="card span-3"><div class="metric">Rumour Policy</div><div class="value red">Blocked</div></div>
+
+        <div class="card span-7" id="events">
+          <h3>Automated Event Engine</h3>
+          <div class="pipeline">
+            <div class="step"><b>01 Verify</b><small>Check trusted source registry and document authenticity.</small></div>
+            <div class="step"><b>02 Extract</b><small>Capture entities, facts, metrics, quotes, and timestamps.</small></div>
+            <div class="step"><b>03 Link</b><small>Resolve entities into the global financial knowledge graph.</small></div>
+            <div class="step"><b>04 Impact</b><small>Score revenue, margin, supply chain, rates, FX, and commodities.</small></div>
+            <div class="step"><b>05 Evidence</b><small>Attach source links and evidence spans before generation.</small></div>
+            <div class="step"><b>06 Publish</b><small>Deliver intelligence reports with confidence and lineage.</small></div>
+          </div>
+        </div>
+
+        <div class="card span-5" id="guardrails">
+          <h3>Zero-Hallucination Contract</h3>
+          <div class="list">
+            <div class="row"><div><strong>No unsupported facts</strong><span>Every number, quote, statement, and market claim must reference a stored evidence span.</span></div><span class="badge">Required</span></div>
+            <div class="row"><div><strong>Confidence scoring</strong><span>Reports separate verified facts, model inference, and scenario analysis.</span></div><span class="badge">Audited</span></div>
+            <div class="row"><div><strong>Source hierarchy</strong><span>Regulators, exchanges, filings, and official company channels outrank media summaries.</span></div><span class="badge">Ranked</span></div>
+          </div>
+        </div>
+
+        <div class="card span-4" id="graph">
+          <h3>Graph Propagation Example</h3>
+          <div class="terminal">China → exports → rare earths\nrare earths → required by → EV makers\nEV makers → impacts → battery suppliers\nbattery suppliers → impacts → lithium demand</div>
+        </div>
+        <div class="card span-4" id="agents">
+          <h3>Agent Roster</h3>
+          <div class="list">
+            <div class="row"><div><strong>Source Verifier</strong><span>Accepts or rejects documents.</span></div></div>
+            <div class="row"><div><strong>Impact Analyst</strong><span>Produces bullish, bearish, or neutral thesis.</span></div></div>
+            <div class="row"><div><strong>Contradiction Auditor</strong><span>Blocks unsupported AI claims.</span></div></div>
+          </div>
+        </div>
+        <div class="card span-4">
+          <h3>Frontend Surfaces</h3>
+          <div class="list">
+            <div class="row"><div><strong>Command Center</strong><span>Real-time market intelligence stream.</span></div></div>
+            <div class="row"><div><strong>Event Detail</strong><span>Evidence-backed explanation and impact map.</span></div></div>
+            <div class="row"><div><strong>Portfolio Exposure</strong><span>User holdings mapped to macro, policy, and company events.</span></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
